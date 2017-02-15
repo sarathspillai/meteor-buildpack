@@ -70,12 +70,16 @@ install_meteor() {
 build() {
   (
     cd $BUILD_DIR
-    status "Building meteor bundle"
+    status "Building meteor bundle started"
     meteor build --directory deploy --server $ROOT_URL
+    status "Building meteor build completed"
     cd deploy/bundle/programs/server
-    status "Installing npm dependencies"
+    status "started Installing npm dependencies"
     npm install 2>&1 | indent
+    status "Completed installing npm dependencies"
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
+    status "finished build"
+
   )
 }
 
