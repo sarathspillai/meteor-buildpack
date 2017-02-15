@@ -106,23 +106,23 @@ build() {
     echo "`pwd`"
     echo "4.Listing from current working directory"
     echo "`ls -l`"
-    status " cd archive/bundle"
-    cd archive/bundle
+    status " cd archive"
+    cd archive
     echo "`pwd`"
     echo "5.Listing from current working directory"
     echo "`ls -l`"
-    status " meteor npm init -f"
-    meteor npm init -f
-    status " mv ./bundle/* ."
-    mv ./bundle/* .
-    status " rm -fr ./bundle"
-    rm -fr ./bundle
-    status "cat ./Procfile"
-    cat ./Procfile
-    status " cd ./programs/server"
-    cd ./programs/server
-    status " npm install --unsafe-perm"
-    npm install --unsafe-perm
+    # status " meteor npm init -f"
+    # meteor npm init -f
+    # status " mv ./bundle/* ."
+    # mv ./bundle/* .
+    # status " rm -fr ./bundle"
+    # rm -fr ./bundle
+    # status "cat ./Procfile"
+    # cat ./Procfile
+    # status " cd ./programs/server"
+    # cd ./programs/server
+    # status " npm install --unsafe-perm"
+    # npm install --unsafe-perm
   )
 }
 
