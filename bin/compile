@@ -85,7 +85,7 @@ build() {
     echo "`pwd`"
     echo "2.Listing from current working directory"
     echo "`ls -l`"
-    mkdir ../archive
+    mkdir archive
     echo "3.Present working directory"
     echo "`pwd`"
     echo "3.Listing from current working directory"
@@ -94,17 +94,17 @@ build() {
     meteor npm install --production 2>&1 | indent
     status "Completed installing npm dependencies"
     status "Building meteor bundle started"
-    meteor build --directory ../archive --architecture=os.linux.x86_64
+    meteor build --directory archive --architecture=os.linux.x86_64
+    return_code $?
     status "Building meteor build completed"
     echo "4.Present working directory"
     echo "`pwd`"
     echo "4.Listing from current working directory"
     echo "`ls -l`"
-    return_code $?
     status " mv Procfile $BUILD_DIR"
-    mv Procfile ../archive
+    mv Procfile archive
     status " cd ./$ARCHIVE_DIR/bundle"
-    cd ../archive/bundle
+    cd archive/bundle
     status " meteor npm init -f"
     meteor npm init -f
     status " mv ./bundle/* ."
