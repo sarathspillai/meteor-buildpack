@@ -70,15 +70,15 @@ install_meteor() {
 build() {
   (
     cd $BUILD_DIR
-    mkdir archive
-    ls
+    mkdir ../archive
+    echo ls
     status "started  meteor  npm install"
     meteor npm install --production 2>&1 | indent
     status "Completed installing npm dependencies"
     status "Building meteor bundle started"
-    meteor build ../archive --directory --architecture=os.linux.x86_64
+    meteor build --directory ../archive --architecture=os.linux.x86_64
     status "Building meteor build completed"
-    ls
+    echo ls
     return_code $?
     status " mv Procfile $BUILD_DIR"
     mv Procfile ../archive
