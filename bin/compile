@@ -76,11 +76,19 @@ install_meteor() {
 
 build() {
   (
-
+    echo "1.Present working directory"
+    echo "`pwd`"
+    echo "2.Listing from current working directory"
     echo "`ls -l`"
     cd $BUILD_DIR
+    echo "2.Present working directory"
+    echo "`pwd`"
+    echo "2.Listing from current working directory"
     echo "`ls -l`"
     mkdir ../archive
+    echo "3.Present working directory"
+    echo "`pwd`"
+    echo "3.Listing from current working directory"
     echo "`ls -l`"
     status "started  meteor  npm install"
     meteor npm install --production 2>&1 | indent
@@ -88,6 +96,9 @@ build() {
     status "Building meteor bundle started"
     meteor build --directory ../archive --architecture=os.linux.x86_64
     status "Building meteor build completed"
+    echo "4.Present working directory"
+    echo "`pwd`"
+    echo "4.Listing from current working directory"
     echo "`ls -l`"
     return_code $?
     status " mv Procfile $BUILD_DIR"
