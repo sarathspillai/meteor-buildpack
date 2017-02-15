@@ -103,8 +103,14 @@ build() {
     echo "`ls -l`"
     status " mv Procfile $BUILD_DIR"
     mv Procfile archive
-    status " cd ./$ARCHIVE_DIR/bundle"
+    echo "`pwd`"
+    echo "4.Listing from current working directory"
+    echo "`ls -l`"
+    status " cd archive/bundle"
     cd archive/bundle
+    echo "`pwd`"
+    echo "5.Listing from current working directory"
+    echo "`ls -l`"
     status " meteor npm init -f"
     meteor npm init -f
     status " mv ./bundle/* ."
